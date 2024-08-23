@@ -1,6 +1,7 @@
-//import { useState } from 'react'
+
 
 import "../css/app.css";
+import { GetRandomCocktail } from "./GetCocktail";
 import { Header } from "./Header";
 
 
@@ -8,7 +9,10 @@ export function App() {
   return (
     <>
       <Header/>
-      <p>Hello World</p>
+      <main>
+        <GetRandomCocktail/>
+      </main>
+      
     </>
   );
 }
