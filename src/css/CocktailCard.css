@@ -1,0 +1,16 @@
+.card {
+    margin: 2rem;
+    border: 2px solid black;
+
+    width: 200px;
+    overflow: hidden;
+    
+  
+  }
+
+
+.image {
+    width: 100%;
+    display: block;
+    
+  }
