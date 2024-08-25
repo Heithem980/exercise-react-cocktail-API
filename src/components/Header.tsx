@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import "../css/Header.css";
+import { Link } from "react-router-dom";
 
 
 export function Header(): ReactElement {
@@ -7,8 +8,8 @@ export function Header(): ReactElement {
       <header className="header">
         <h1>Cocktail-wiki</h1>
       <nav className="nav">
-        <a href="/" className="link">Home</a>
-        <a href="/about" className="link">Search</a>
+      <Link to="/" className="link">Home</Link>
+      <Link to="/about" className="link">Search</Link>
         
       </nav>
     </header>

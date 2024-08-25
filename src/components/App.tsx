@@ -1,13 +1,40 @@
-
-
 import "../css/app.css";
-import { GetRandomCocktail } from "./GetCocktail";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { GetRandomCocktail } from "./GetRandomCocktail";
 import { Header } from "./Header";
+
+
+
+
+
 
 
 export function App() {
   return (
     <>
+      <Router>
+        <>
+          <Header />
+          <main>
+            <Routes>
+            <Route path="/" element={<GetRandomCocktail />} />
+            </Routes>
+          </main>
+        </>
+      </Router>
+    </>
+  );
+}
+
+/*
+
+
+
+export function App() {
+  return (
+    <>
+
+
       <Header/>
       <main>
         <GetRandomCocktail/>
@@ -17,7 +44,7 @@ export function App() {
   );
 }
 
-/*
+
 function App() {
   const [count, setCount] = useState(0)
 

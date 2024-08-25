@@ -29,7 +29,9 @@ export function GetRandomCocktail() {
       </div>
       <div className="buttondiv">
       <button onClick={GetRandomCocktailOnClick}>Randomize</button>
+      
       </div>
+      <a href="#" >See More ›</a>
       
     </>
   );
