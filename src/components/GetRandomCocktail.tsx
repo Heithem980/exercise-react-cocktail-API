@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../css/CocktailCard.css";
+import { Link } from "react-router-dom";
 
 export function GetRandomCocktail() {
   const [CocktailImage, setCocktailImage] = useState(null);
@@ -31,7 +32,8 @@ export function GetRandomCocktail() {
       <button onClick={GetRandomCocktailOnClick}>Randomize</button>
       
       </div>
-      <a href="#" >See More ›</a>
+      <Link to="/Details">Read more</Link>
+
       
     </>
   );
