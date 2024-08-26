@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 interface ICardProps {
   Name: string;
   Image: string;
+  
 }
 
 
