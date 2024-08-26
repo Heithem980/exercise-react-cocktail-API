@@ -1,16 +1,18 @@
-import { GetCocktailDetails } from "./GetRandomCocktail"
+import { GetCocktailDetails } from "./GetRandomCocktail";
+
 
 
 
 
 
 export function Details() {
+  return (
+    <>
+      <div className="detailContainer">
+        <h2>Cocktail Details</h2>
 
-    return (
-        <>
-        <p>Add details</p>
-
-        <GetCocktailDetails/>
-        </>
-    )
+        <GetCocktailDetails />
+      </div>
+    </>
+  );
 }
