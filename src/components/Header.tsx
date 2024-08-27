@@ -9,7 +9,7 @@ export function Header(): ReactElement {
         <h1>Cocktail-wiki</h1>
       <nav className="nav">
       <Link to="/" className="link">Home</Link>
-      <Link to="/about" className="link">Search</Link>
+      <Link to="/search" className="link">Search</Link>
         
       </nav>
     </header>

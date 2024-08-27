@@ -1,9 +1,4 @@
-import { GetCocktailDetails } from "./GetRandomCocktail";
-
-
-
-
-
+import { GetCocktailDetails } from "./FetchCocktail";
 
 export function Details() {
   return (

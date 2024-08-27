@@ -1,13 +1,9 @@
 import "../css/app.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { GetRandomCocktail } from "./GetRandomCocktail";
+import { GetCocktailByName, GetRandomCocktail } from "./FetchCocktail";
 import { Header } from "./Header";
-import { Details } from "./Details";
-
-
-
-
-
+import { Details } from "./InfoPage";
+import { SearchForm } from "./SearchPage";
 
 export function App() {
   return (
@@ -17,7 +13,9 @@ export function App() {
         <main>
           <Routes>
             <Route path="/" element={<GetRandomCocktail />} />
-            <Route path="/Details" element={<Details />} />
+            <Route path="/info" element={<Details />} />
+            <Route path="/search" element={<SearchForm />} />
+
           </Routes>
         </main>
       </>

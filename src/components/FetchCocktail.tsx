@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Card } from "./Card";
 import "../css/CocktailCard.css";
-import { Link } from "react-router-dom";
 
 interface CocktailDetails {
   Category: string;
@@ -61,6 +60,21 @@ export function GetRandomCocktail() {
     </>
   );
 }
+
+
+export function GetCocktailByName(name:string) {
+
+   
+  
+  return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
+    .then((response) => response.json())
+    .then((data) => data.drinks ? data.drinks[0] : null)
+    .catch((error) => {
+      console.error('Error fetching cocktail by name:', error);
+      return null;
+    });
+}
+
 
 export function GetCocktailDetails() {
   return (
