@@ -66,7 +66,7 @@ export function GetCocktailDetails() {
   return (
     <>
       <img
-        className="imae"
+        className="DetailsImage"
         style={{ width: "300px" }}
         src={cocktailDetails?.Image}
       ></img>
