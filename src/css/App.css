@@ -15,8 +15,15 @@
   height: 50px;
 }
 
-
 ul {
   list-style-type: none;
-  text-align:center;
+  text-align: center;
+}
+
+main {
+  margin-top: 2rem;
+}
+
+.btn-submit {
+  margin: 1rem;
 }

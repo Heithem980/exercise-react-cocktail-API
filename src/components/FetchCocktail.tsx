@@ -64,7 +64,7 @@ export function GetRandomCocktail() {
 
 export function GetCocktailByName(name:string) {
 
-   
+
   
   return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
     .then((response) => response.json())
