@@ -63,12 +63,18 @@ export function GetRandomCocktail() {
 
 
 export function GetCocktailByName(name:string) {
+const [searchDrinks, setSearchDrinks] = useState([])
 
+  console.log(name);
 
   
-  return fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
+   fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
     .then((response) => response.json())
-    .then((data) => data.drinks ? data.drinks[0] : null)
+    .then((data) => {
+      console.log(data.drinks )
+      setSearchDrinks(data.drinks)
+
+    })
     .catch((error) => {
       console.error('Error fetching cocktail by name:', error);
       return null;

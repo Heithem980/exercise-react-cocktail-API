@@ -9,7 +9,6 @@ export function SearchCocktail() {
     e.preventDefault();
 
     let newValue = value.replace(/(?<=\S)\s+(?=\S)/g, "_");
-    console.log(newValue);
 
     GetCocktailByName(newValue);
   };
