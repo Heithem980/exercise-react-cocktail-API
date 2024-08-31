@@ -61,9 +61,19 @@ export function GetRandomCocktail() {
   );
 }
 
+export async function GetCocktailByName(name: string) {
+  try {
+    const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`);
+    const data = await response.json();
+    return data.drinks || []; 
+  } catch (error) {
+    console.error('Error fetching cocktail by name:', error);
+    return []; 
+  }
+}
+/*
+export async function GetCocktailByName(name:string) {
 
-export function GetCocktailByName(name:string) {
-const [searchDrinks, setSearchDrinks] = useState([])
 
   console.log(name);
 
@@ -72,7 +82,7 @@ const [searchDrinks, setSearchDrinks] = useState([])
     .then((response) => response.json())
     .then((data) => {
       console.log(data.drinks )
-      setSearchDrinks(data.drinks)
+      //setSearchDrinks(data.drinks)
 
     })
     .catch((error) => {
@@ -80,7 +90,7 @@ const [searchDrinks, setSearchDrinks] = useState([])
       return null;
     });
 }
-
+*/
 
 export function GetCocktailDetails() {
   return (

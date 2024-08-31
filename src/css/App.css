@@ -27,3 +27,18 @@ main {
 .btn-submit {
   margin: 1rem;
 }
+
+.cocktail-names-list {
+
+  text-align: center;
+  
+}
+
+.cocktail-name {
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.cocktail-name-link{
+  text-decoration: none;
+}
