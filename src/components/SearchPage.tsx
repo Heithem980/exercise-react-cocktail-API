@@ -1,7 +1,9 @@
 import { ChangeEvent, FormEventHandler, useState } from "react";
 import "../css/App.css";
-import { GetCocktailByName } from "./FetchCocktail";
+import { CocktailDetails, GetCocktailByName } from "./FetchCocktail";
 import { Link } from "react-router-dom";
+
+
 
 export function SearchCocktail() {
   const [value, setValue] = useState<string>("");
@@ -34,7 +36,7 @@ export function SearchCocktail() {
         />
 
         <button className="btn-submit" type="submit">
-          Submit
+          Search 
         </button>
       </form>
 

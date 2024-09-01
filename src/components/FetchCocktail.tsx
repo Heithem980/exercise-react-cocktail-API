@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Card } from "./Card";
 import "../css/CocktailCard.css";
 
-interface CocktailDetails {
+export interface CocktailDetails {
+  Name: string;
   Category: string;
   Image: string;
   Tags: string;
@@ -10,21 +11,16 @@ interface CocktailDetails {
   Glass: string;
 }
 
-let cocktailDetails: CocktailDetails;
+//let cocktailDetails: CocktailDetails;
 
 export function GetRandomCocktail() {
-  const [cocktailImage, setCocktailImage] = useState("");
-  const [cocktailName, setCocktailName] = useState("");
-  const [triggerEffect, setTriggerEffect] = useState<number>(0);
+  const [coctailDetails, setCocktailDetails] = useState<CocktailDetails>();
 
-  useEffect(() => {
+  const fetchRandomCocktail = () => {
     fetch("https://www.thecocktaildb.com/api/json/v1/1/random.php")
       .then((response) => response.json())
       .then((data) => {
         const drink = data.drinks[0];
-
-        setCocktailImage(drink.strDrinkThumb);
-        setCocktailName(drink.strDrink);
 
         const ingredientsWithMeasurements: Record<string, string> = {};
         for (let i = 1; i <= 15; i++) {
@@ -35,24 +31,31 @@ export function GetRandomCocktail() {
           }
         }
 
-        cocktailDetails = {
+        const details: CocktailDetails = {
+          Name: drink.strDrink,
           Category: drink.strCategory,
           Image: drink.strDrinkThumb,
           Tags: drink.strTags || "",
           IngredientsWithMeasurements: ingredientsWithMeasurements,
           Glass: drink.strGlass,
         };
+        setCocktailDetails(details)
       });
-  }, [triggerEffect]);
+  };
+
+  useEffect(() => {
+    fetchRandomCocktail();
+  }, []);
 
   const GetRandomCocktailOnClick = () => {
-    setTriggerEffect((count) => count + 1);
+    fetchRandomCocktail(); 
   };
 
   return (
     <>
       <div className="cardContainer">
-        <Card Name={cocktailName} Image={cocktailImage} />
+        {coctailDetails && <Card Name={coctailDetails.Name} Image={coctailDetails.Image} />}
+        
       </div>
       <div className="buttondiv">
         <button onClick={GetRandomCocktailOnClick}>Randomize</button>
@@ -63,36 +66,18 @@ export function GetRandomCocktail() {
 
 export async function GetCocktailByName(name: string) {
   try {
-    const response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`);
+    const response = await fetch(
+      `https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
+    );
     const data = await response.json();
-    return data.drinks || []; 
+    return data.drinks || [];
   } catch (error) {
-    console.error('Error fetching cocktail by name:', error);
-    return []; 
+    console.error("Error fetching cocktail by name:", error);
+    return [];
   }
 }
 /*
-export async function GetCocktailByName(name:string) {
-
-
-  console.log(name);
-
-  
-   fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.drinks )
-      //setSearchDrinks(data.drinks)
-
-    })
-    .catch((error) => {
-      console.error('Error fetching cocktail by name:', error);
-      return null;
-    });
-}
-*/
-
-export function GetCocktailDetails() {
+export function ShowCocktailDetails() {
   return (
     <>
       <img
@@ -128,3 +113,5 @@ export function GetCocktailDetails() {
     </>
   );
 }
+
+*/
