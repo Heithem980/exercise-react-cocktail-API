@@ -54,7 +54,7 @@ export function GetRandomCocktail() {
   return (
     <>
       <div className="cardContainer">
-        {coctailDetails && <Card Name={coctailDetails.Name} Image={coctailDetails.Image} />}
+        {coctailDetails && <Card Name={coctailDetails.Name} Image={coctailDetails.Image} Details={coctailDetails} />}
         
       </div>
       <div className="buttondiv">

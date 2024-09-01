@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEventHandler, useState } from "react";
 import "../css/App.css";
-import { CocktailDetails, GetCocktailByName } from "./FetchCocktail";
+import { GetCocktailByName } from "./FetchCocktail";
 import { Link } from "react-router-dom";
 
 
