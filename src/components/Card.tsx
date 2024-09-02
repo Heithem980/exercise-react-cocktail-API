@@ -12,10 +12,6 @@ interface ICardProps {
 
 export function Card(props: ICardProps): ReactElement {
 
-
-  
-
-
   return (
     <>
       <div className="card">

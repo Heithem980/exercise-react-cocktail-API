@@ -11,7 +11,7 @@ export interface CocktailDetails {
   Glass: string;
 }
 
-//let cocktailDetails: CocktailDetails;
+
 
 export function GetRandomCocktail() {
   const [coctailDetails, setCocktailDetails] = useState<CocktailDetails>();
@@ -65,17 +65,16 @@ export function GetRandomCocktail() {
 }
 
 export async function GetCocktailByName(name: string) {
-  try {
+  
     const response = await fetch(
       `https://thecocktaildb.com/api/json/v1/1/search.php?s=${name}`
     );
     const data = await response.json();
     return data.drinks || [];
-  } catch (error) {
-    console.error("Error fetching cocktail by name:", error);
-    return [];
-  }
-}
+  } 
+    
+  
+
 /*
 export function ShowCocktailDetails() {
   return (
