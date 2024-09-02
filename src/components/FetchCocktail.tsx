@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactElement } from "react";
 import { Card } from "./Card";
 import "../css/CocktailCard.css";
 
@@ -13,7 +13,7 @@ export interface CocktailDetails {
 
 
 
-export function GetRandomCocktail() {
+export function GetRandomCocktail(): ReactElement {
   const [coctailDetails, setCocktailDetails] = useState<CocktailDetails>();
 
   const fetchRandomCocktail = () => {
@@ -74,43 +74,3 @@ export async function GetCocktailByName(name: string) {
   } 
     
   
-
-/*
-export function ShowCocktailDetails() {
-  return (
-    <>
-      <img
-        className="DetailsImage"
-        style={{ width: "300px" }}
-        src={cocktailDetails?.Image}
-      ></img>
-
-      <h3>Tags:</h3>
-      <p>{cocktailDetails?.Tags || "None"}</p>
-
-      <h3>Category:</h3>
-      <p>{cocktailDetails?.Category}</p>
-
-      <h3>Glass:</h3>
-      <p>{cocktailDetails?.Glass}</p>
-
-      <h3>Ingredients and Measurements</h3>
-
-      {cocktailDetails?.IngredientsWithMeasurements ? (
-        <ul>
-          {Object.entries(cocktailDetails.IngredientsWithMeasurements).map(
-            ([ingredient, measurement]) => (
-              <li key={ingredient}>
-                {ingredient}: {measurement}
-              </li>
-            )
-          )}
-        </ul>
-      ) : (
-        <p>No ingredients available</p>
-      )}
-    </>
-  );
-}
-
-*/

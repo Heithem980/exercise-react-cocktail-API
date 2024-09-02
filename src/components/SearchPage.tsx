@@ -1,14 +1,14 @@
-import { ChangeEvent, FormEventHandler, useState } from "react";
+import { ChangeEvent, FormEventHandler, ReactElement, useState } from "react";
 import "../css/App.css";
 import { CocktailDetails, GetCocktailByName } from "./FetchCocktail";
 import { Link } from "react-router-dom";
 
 
 
-export function SearchCocktail() {
+export function SearchCocktail(): ReactElement {
+
   const [value, setValue] = useState<string>("");
   const [cocktails, setCocktails] = useState<any[]>([]);
-  //const [coctailDetails, setCocktailDetails] = useState<CocktailDetails>();
 
   const Onsubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -18,7 +18,6 @@ export function SearchCocktail() {
     const fetchedCocktails = await GetCocktailByName(newValue);
     setCocktails(fetchedCocktails);
 
-    //cocktails.map((cocktail,index) => ())
 
     const mappedCocktails: CocktailDetails[] = fetchedCocktails.map((cocktail: any) => ({
       Name: cocktail.strDrink,
@@ -45,7 +44,6 @@ export function SearchCocktail() {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
 
-    //console.log(value)
   };
 
   return (

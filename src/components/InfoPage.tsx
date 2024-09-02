@@ -1,12 +1,13 @@
 import { useLocation } from "react-router-dom";
 import { CocktailDetails } from "./FetchCocktail";
+import { ReactElement } from "react";
 
 
 
 
 
 
-export function Details() {
+export function Details() : ReactElement  {
   const location = useLocation();
   const state = location.state as { details: CocktailDetails };
 
